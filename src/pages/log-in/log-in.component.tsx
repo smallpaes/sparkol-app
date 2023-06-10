@@ -31,9 +31,14 @@ const LogIn: FC = () => {
     setIsPasswordValid(isPasswordValid);
   }, [password]);
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isUserNameValid || !isPasswordValid) return;
+  };
+
   return (
     <LogInContainer>
-      <LogInForm>
+      <LogInForm onSubmit={handleFormSubmit}>
         <LoginFormFieldSet>
           <LogInFormLegend>Log In</LogInFormLegend>
           <FormInput
@@ -47,7 +52,6 @@ const LogIn: FC = () => {
             aria-invalid={!isUserNameValid}
             onChange={(e) => setUserName(e.target.value)}
             onBlur={() => setIsUserNameTouched(true)}
-            required
             placeholder="User name"
           />
           <FormInput
@@ -61,7 +65,6 @@ const LogIn: FC = () => {
             aria-invalid={!isPasswordValid}
             onChange={(e) => setPassword(e.target.value)}
             onBlur={() => setIsPasswordTouched(true)}
-            required
             placeholder="Password"
             autoComplete="password"
           />
