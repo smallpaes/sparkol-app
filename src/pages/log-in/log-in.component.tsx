@@ -1,5 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 
+import usePostData from '../../hooks/usePostData';
+import { LOGIN_ENDPOINT } from '../../apis/endpoints/auth';
 import FormInput from '../../components/form-input/form-input.component';
 import { ButtonType } from '../../components/button/button.component';
 import Button from '../../components/button/button.component';
@@ -9,11 +11,13 @@ import {
   LogInFormLegend,
   LoginFormFieldSet,
 } from './log-in.styles';
+import { LogInResponse, LogInData } from './type';
 
 const USER_NAME_REGEX = /.+/;
 const PASSWORD_REGEX = /.+/;
 
 const LogIn: FC = () => {
+  const [postData, isLoading, error] = usePostData();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [isUserNameTouched, setIsUserNameTouched] = useState(false);
@@ -31,15 +35,27 @@ const LogIn: FC = () => {
     setIsPasswordValid(isPasswordValid);
   }, [password]);
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isUserNameValid || !isPasswordValid) return;
+    try {
+      const response = await postData<LogInData, LogInResponse>(
+        LOGIN_ENDPOINT,
+        {
+          username: userName,
+          password,
+        },
+      );
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
     <LogInContainer>
       <LogInForm onSubmit={handleFormSubmit}>
-        <LoginFormFieldSet>
+        <LoginFormFieldSet disabled={isLoading}>
           <LogInFormLegend>Log In</LogInFormLegend>
           <FormInput
             isTouched={isUserNameTouched}
@@ -71,6 +87,7 @@ const LogIn: FC = () => {
           <Button
             buttonType={ButtonType.PRIMARY}
             isOutlined={false}
+            disabled={isLoading}
             type="submit"
           >
             Log in
