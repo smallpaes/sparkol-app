@@ -20,13 +20,21 @@ const FormInput: FC<IFormInput> = ({
   invalidMessage = '',
   isShowLabel = true,
   name,
+  id,
   ...otherInputProps
 }) => {
   const isInValidInput = isTouched && isInvalid;
   return (
     <FormInputContainer>
-      {isShowLabel && <FormInputLabel>{name}</FormInputLabel>}
-      <FormInputField $isInvalid={isInValidInput} {...otherInputProps} />
+      <FormInputLabel $isHidden={!isShowLabel} htmlFor={id}>
+        {name}
+      </FormInputLabel>
+      <FormInputField
+        $isInvalid={isInValidInput}
+        id={id}
+        name={name}
+        {...otherInputProps}
+      />
       {isInValidInput && <FormInputMessage>{invalidMessage}</FormInputMessage>}
     </FormInputContainer>
   );

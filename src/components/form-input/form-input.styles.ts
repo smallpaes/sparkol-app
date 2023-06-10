@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const FormInputContainer = styled.div`
   width: 100%;
@@ -7,9 +7,23 @@ export const FormInputContainer = styled.div`
   gap: 0.25rem;
 `;
 
-export const FormInputLabel = styled.label`
+export const visuallyHiddenStyles = css`
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+`;
+
+export const FormInputLabel = styled.label<{
+  $isHidden: boolean;
+}>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ theme }) => theme.colors.tertiary};
+  ${({ $isHidden }) => $isHidden && visuallyHiddenStyles}
 `;
 
 export const FormInputField = styled.input<{
