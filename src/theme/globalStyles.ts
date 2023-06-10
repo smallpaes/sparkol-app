@@ -67,4 +67,13 @@ export const GlobalStyles = createGlobalStyle`
     border: none; 
     outline: none;
   }
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
 `;
