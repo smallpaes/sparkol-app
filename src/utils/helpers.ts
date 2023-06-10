@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:3333',
