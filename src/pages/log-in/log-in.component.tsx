@@ -1,6 +1,8 @@
 import { FC, useState, useEffect } from 'react';
-import FormInput from '../../components/form-input/form-input.component';
 
+import FormInput from '../../components/form-input/form-input.component';
+import { ButtonType } from '../../components/button/button.component';
+import Button from '../../components/button/button.component';
 import {
   LogInContainer,
   LogInForm,
@@ -63,6 +65,13 @@ const LogIn: FC = () => {
             placeholder="Password"
             autoComplete="password"
           />
+          <Button
+            buttonType={ButtonType.PRIMARY}
+            isOutlined={false}
+            type="submit"
+          >
+            Log in
+          </Button>
         </LoginFormFieldSet>
       </LogInForm>
     </LogInContainer>
