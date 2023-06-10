@@ -10,6 +10,8 @@ import {
   LogInForm,
   LogInFormLegend,
   LoginFormFieldSet,
+  LogInFormWarningMessage,
+  LogInInputGroup,
 } from './log-in.styles';
 import { LogInResponse, LogInData } from './type';
 
@@ -57,33 +59,36 @@ const LogIn: FC = () => {
       <LogInForm onSubmit={handleFormSubmit}>
         <LoginFormFieldSet disabled={isLoading}>
           <LogInFormLegend>Log In</LogInFormLegend>
-          <FormInput
-            isTouched={isUserNameTouched}
-            isInvalid={!isUserNameValid}
-            invalidMessage="Please enter your user name"
-            type="text"
-            name="User Name"
-            id="userName"
-            value={userName}
-            aria-invalid={!isUserNameValid}
-            onChange={(e) => setUserName(e.target.value)}
-            onBlur={() => setIsUserNameTouched(true)}
-            placeholder="User name"
-          />
-          <FormInput
-            isTouched={isPasswordTouched}
-            isInvalid={!isPasswordValid}
-            invalidMessage="Please enter your password"
-            type="password"
-            name="Password"
-            id="password"
-            value={password}
-            aria-invalid={!isPasswordValid}
-            onChange={(e) => setPassword(e.target.value)}
-            onBlur={() => setIsPasswordTouched(true)}
-            placeholder="Password"
-            autoComplete="password"
-          />
+          {error && <LogInFormWarningMessage>{error}</LogInFormWarningMessage>}
+          <LogInInputGroup>
+            <FormInput
+              isTouched={isUserNameTouched}
+              isInvalid={!isUserNameValid}
+              invalidMessage="Please enter your user name"
+              type="text"
+              name="User Name"
+              id="userName"
+              value={userName}
+              aria-invalid={!isUserNameValid}
+              onChange={(e) => setUserName(e.target.value)}
+              onBlur={() => setIsUserNameTouched(true)}
+              placeholder="User name"
+            />
+            <FormInput
+              isTouched={isPasswordTouched}
+              isInvalid={!isPasswordValid}
+              invalidMessage="Please enter your password"
+              type="password"
+              name="Password"
+              id="password"
+              value={password}
+              aria-invalid={!isPasswordValid}
+              onChange={(e) => setPassword(e.target.value)}
+              onBlur={() => setIsPasswordTouched(true)}
+              placeholder="Password"
+              autoComplete="password"
+            />
+          </LogInInputGroup>
           <Button
             buttonType={ButtonType.PRIMARY}
             isOutlined={false}
