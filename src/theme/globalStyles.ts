@@ -12,6 +12,10 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  html {
+    height: 100%;
+  }
   
   body {
     margin: 0;
@@ -20,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
     font-family: 'Hind Siliguri', Arial, sans-serif;
     background-color: ${({ theme }) => theme.colors.secondary};
+    height: 100%;
   }
 
   a {
