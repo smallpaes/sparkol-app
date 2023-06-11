@@ -1,7 +1,5 @@
-import { FC, useState, useMemo } from 'react';
+import { FC, useState } from 'react';
 
-import usePostData from '../../hooks/usePostData';
-import { LOGIN_ENDPOINT } from '../../apis/endpoints/auth';
 import FormInput from '../../components/form-input/form-input.component';
 import { ButtonType } from '../../components/button/button.types';
 import Button from '../../components/button/button.component';
@@ -13,42 +11,23 @@ import {
   LogInFormWarningMessage,
   LogInInputGroup,
 } from './log-in.styles';
-import { LogInResponse, LogInData } from './log-in.types';
-
-const USER_NAME_REGEX = /.+/;
-const PASSWORD_REGEX = /.+/;
+import useIsValidPassword from './hooks/useIsValidPassword';
+import useIsValidUserName from './hooks/useIsValidUserName';
+import useLogin from './hooks/useLogin';
 
 const LogIn: FC = () => {
-  const [postData, isLoading, error] = usePostData();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [isUserNameTouched, setIsUserNameTouched] = useState(false);
   const [isPasswordTouched, setIsPasswordTouched] = useState(false);
 
-  const isUserNameValid = useMemo(
-    () => USER_NAME_REGEX.test(userName.trim()),
-    [userName],
-  );
-  const isPasswordValid = useMemo(
-    () => PASSWORD_REGEX.test(password.trim()),
-    [password],
-  );
+  const isUserNameValid = useIsValidPassword(userName);
+  const isPasswordValid = useIsValidUserName(password);
+  const { login, error, isLoading } = useLogin(userName, password);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!isUserNameValid || !isPasswordValid) return;
-    try {
-      const response = await postData<LogInData, LogInResponse>(
-        LOGIN_ENDPOINT,
-        {
-          username: userName,
-          password,
-        },
-      );
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
+    login();
   };
 
   return (

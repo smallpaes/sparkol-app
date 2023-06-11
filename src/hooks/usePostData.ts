@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { apiHelper } from '../utils/helpers';
 import { AxiosError } from 'axios';
 
-const usePostData = (): [
-  <T, U>(url: string, data: T) => Promise<U | null>,
-  boolean,
-  string | null,
-] => {
+const usePostData = (): {
+  postData: <T, U>(url: string, data: T) => Promise<U | null>;
+  isLoading: boolean;
+  error: string | null;
+} => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,12 +22,12 @@ const usePostData = (): [
       } else {
         setError('Something went wrong');
       }
-      return Promise.reject(null);
+      return null;
     } finally {
       setIsLoading(false);
     }
   };
-  return [postData, isLoading, error];
+  return { postData, isLoading, error };
 };
 
 export default usePostData;
