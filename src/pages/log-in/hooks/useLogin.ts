@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import usePostData from '../../../hooks/usePostData';
 import useIsValidForm from './useIsValidForm';
@@ -18,6 +19,7 @@ const useLogin = (
   const { postData, error, isLoading } = usePostData();
   const { setUser } = useContext(UserContext);
   const isValidForm = useIsValidForm(userName, password);
+  const navigate = useNavigate();
   const login = async (): Promise<void> => {
     if (!isValidForm) return;
     const data = await postData<LogInData, LogInResponse>(LOGIN_ENDPOINT, {
@@ -28,6 +30,7 @@ const useLogin = (
     const { token, user } = data;
     setTokenToLocalStorage(token);
     setUser({ ...user, token });
+    navigate('/');
   };
   return { login, error, isLoading };
 };
