@@ -2,11 +2,10 @@ import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { AuthLayoutContainer } from './auth-layout.styles';
-import useIsAuthenticated from './hooks/useAuthenticateUser';
+import useAuthenticateUser from './hooks/useAuthenticateUser';
 
 const AuthLayout: FC = () => {
-  useIsAuthenticated();
-
+  useAuthenticateUser();
   return (
     <AuthLayoutContainer>
       <Outlet />

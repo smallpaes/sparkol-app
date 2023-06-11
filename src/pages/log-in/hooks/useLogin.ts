@@ -6,6 +6,7 @@ import useIsValidForm from './useIsValidForm';
 import { LOGIN_ENDPOINT } from '../../../apis/endpoints/auth';
 import { LogInResponse, LogInData } from '../log-in.types';
 import setTokenToLocalStorage from '../helpers/setTokenToLocalStorage';
+import setUserToLocalStorage from '../helpers/setUserToLocalStorage';
 import { UserContext } from '../../../context/UserContext';
 
 const useLogin = (
@@ -29,6 +30,7 @@ const useLogin = (
     if (!data) return;
     const { token, user } = data;
     setTokenToLocalStorage(token);
+    setUserToLocalStorage(user);
     setUser({ ...user, token });
     navigate('/');
   };

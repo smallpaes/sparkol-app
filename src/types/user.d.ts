@@ -15,3 +15,5 @@ export interface IDefaultUser {
 export interface IUserProvider {
   children: ReactNode;
 }
+
+export type LocalUser = Pick<User, 'id' | 'name'>;
