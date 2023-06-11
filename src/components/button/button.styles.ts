@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { ButtonType } from './button.component';
+import { ButtonType } from './button.types';
 
 export const disabledStyles = css`
   cursor: not-allowed;
