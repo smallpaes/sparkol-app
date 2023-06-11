@@ -1,11 +1,7 @@
 import { FC, ButtonHTMLAttributes } from 'react';
 
 import { CustomButton } from './button.styles';
-
-export enum ButtonType {
-  PRIMARY = 'primary',
-  TERTIARY = 'tertiary',
-}
+import { ButtonType } from './button.types';
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: ButtonType;

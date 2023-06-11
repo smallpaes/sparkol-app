@@ -3,7 +3,7 @@ import { FC, useState, useMemo } from 'react';
 import usePostData from '../../hooks/usePostData';
 import { LOGIN_ENDPOINT } from '../../apis/endpoints/auth';
 import FormInput from '../../components/form-input/form-input.component';
-import { ButtonType } from '../../components/button/button.component';
+import { ButtonType } from '../../components/button/button.types';
 import Button from '../../components/button/button.component';
 import {
   LogInContainer,
