@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import FormInput from '../../components/form-input/form-input.component';
 import { ButtonType } from '../../components/button/button.types';
@@ -14,38 +14,11 @@ import {
 import useIsValidPassword from './hooks/useIsValidPassword';
 import useIsValidUserName from './hooks/useIsValidUserName';
 import useLogin from './hooks/useLogin';
-
-interface IField {
-  value: string;
-  isTouched: boolean;
-}
-
-interface IFormData {
-  userName: IField;
-  password: IField;
-}
+import useFormState from './hooks/useFormState';
+import { IFormData } from './log-in.types';
 
 const LogIn: FC = () => {
-  const [formData, setFormData] = useState<IFormData>({
-    userName: {
-      value: '',
-      isTouched: false,
-    },
-    password: {
-      value: '',
-      isTouched: false,
-    },
-  });
-
-  const updateFormData = (fieldName: keyof IFormData, value: IField) => {
-    if (fieldName === undefined || value === undefined) return;
-    if (formData[fieldName] === undefined) return;
-    setFormData({
-      ...formData,
-      [fieldName]: value,
-    });
-  };
-
+  const { formData, updateFormData } = useFormState();
   const isUserNameValid = useIsValidPassword(formData.userName.value);
   const isPasswordValid = useIsValidUserName(formData.password.value);
   const { login, error, isLoading } = useLogin(

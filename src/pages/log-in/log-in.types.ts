@@ -12,3 +12,13 @@ export interface LogInData {
   username: string;
   password: string;
 }
+
+export interface IField {
+  value: string;
+  isTouched: boolean;
+}
+
+export interface IFormData {
+  userName: IField;
+  password: IField;
+}
