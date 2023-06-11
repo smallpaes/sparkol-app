@@ -1,8 +1,11 @@
+import { useContext } from 'react';
+
 import usePostData from '../../../hooks/usePostData';
 import useIsValidForm from './useIsValidForm';
 import { LOGIN_ENDPOINT } from '../../../apis/endpoints/auth';
 import { LogInResponse, LogInData } from '../log-in.types';
 import setTokenToLocalStorage from '../helpers/setTokenToLocalStorage';
+import { UserContext } from '../../../context/UserContext';
 
 const useLogin = (
   userName: string,
@@ -13,6 +16,7 @@ const useLogin = (
   isLoading: boolean;
 } => {
   const { postData, error, isLoading } = usePostData();
+  const { setUser } = useContext(UserContext);
   const isValidForm = useIsValidForm(userName, password);
   const login = async (): Promise<void> => {
     if (!isValidForm) return;
@@ -21,8 +25,9 @@ const useLogin = (
       password,
     });
     if (!data) return;
-    const { token } = data;
+    const { token, user } = data;
     setTokenToLocalStorage(token);
+    setUser({ ...user, token });
   };
   return { login, error, isLoading };
 };
