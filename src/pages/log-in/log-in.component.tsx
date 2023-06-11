@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useMemo } from 'react';
 
 import usePostData from '../../hooks/usePostData';
 import { LOGIN_ENDPOINT } from '../../apis/endpoints/auth';
@@ -24,18 +24,15 @@ const LogIn: FC = () => {
   const [password, setPassword] = useState('');
   const [isUserNameTouched, setIsUserNameTouched] = useState(false);
   const [isPasswordTouched, setIsPasswordTouched] = useState(false);
-  const [isUserNameValid, setIsUserNameValid] = useState(false);
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
 
-  useEffect(() => {
-    const isUserNameValid = USER_NAME_REGEX.test(userName.trim());
-    setIsUserNameValid(isUserNameValid);
-  }, [userName]);
-
-  useEffect(() => {
-    const isPasswordValid = PASSWORD_REGEX.test(password.trim());
-    setIsPasswordValid(isPasswordValid);
-  }, [password]);
+  const isUserNameValid = useMemo(
+    () => USER_NAME_REGEX.test(userName.trim()),
+    [userName],
+  );
+  const isPasswordValid = useMemo(
+    () => PASSWORD_REGEX.test(password.trim()),
+    [password],
+  );
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
