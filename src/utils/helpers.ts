@@ -2,8 +2,10 @@ import axios, { AxiosError } from 'axios';
 
 import localStorageKeys from '../constants/localStorageKeys';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: BASE_URL,
 });
 
 axiosInstance.interceptors.request.use(
