@@ -9,6 +9,8 @@ import setTokenToLocalStorage from '../helpers/setTokenToLocalStorage';
 import setUserToLocalStorage from '../helpers/setUserToLocalStorage';
 import { UserContext } from '../../../context/UserContext';
 
+import setDataToLocalStorage from '../helpers/setDataToLocalStorage';
+
 const useLogin = (
   userName: string,
   password: string,
@@ -29,8 +31,8 @@ const useLogin = (
     });
     if (!data) return;
     const { token, user } = data;
-    setTokenToLocalStorage(token);
-    setUserToLocalStorage(user);
+    setTokenToLocalStorage(token, setDataToLocalStorage);
+    setUserToLocalStorage(user, setDataToLocalStorage);
     setUser({ ...user, token });
     navigate('/');
   };

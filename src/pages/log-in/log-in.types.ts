@@ -1,3 +1,4 @@
+import setDataToLocalStorage from './helpers/setDataToLocalStorage';
 export interface User {
   name: string;
   id: number;
@@ -22,3 +23,5 @@ export interface IFormData {
   userName: IField;
   password: IField;
 }
+
+export type SetDataToLocalStorage = <T>(key: string, data: T) => void;
