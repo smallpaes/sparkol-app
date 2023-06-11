@@ -13,7 +13,7 @@ import {
   LogInFormWarningMessage,
   LogInInputGroup,
 } from './log-in.styles';
-import { LogInResponse, LogInData } from './type';
+import { LogInResponse, LogInData } from './log-in.types';
 
 const USER_NAME_REGEX = /.+/;
 const PASSWORD_REGEX = /.+/;
