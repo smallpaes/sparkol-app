@@ -2,6 +2,7 @@ import usePostData from '../../../hooks/usePostData';
 import useIsValidForm from './useIsValidForm';
 import { LOGIN_ENDPOINT } from '../../../apis/endpoints/auth';
 import { LogInResponse, LogInData } from '../log-in.types';
+import setTokenToLocalStorage from '../helpers/setTokenToLocalStorage';
 
 const useLogin = (
   userName: string,
@@ -19,7 +20,9 @@ const useLogin = (
       username: userName,
       password,
     });
-    console.log(data);
+    if (!data) return;
+    const { token } = data;
+    setTokenToLocalStorage(token);
   };
   return { login, error, isLoading };
 };
