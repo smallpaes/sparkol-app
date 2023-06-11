@@ -1,18 +1,20 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../../context/UserContext';
 import useGetLocalToken from './useGetLocalToken';
 import useGetLocalUser from './useGetLocalUser';
 import useInitUser from './useInitUser';
+import LocalStorageKeys from '../../../constants/localStorageKeys';
 
 const useAuthenticateUser = (): void => {
-  const { user } = useContext(UserContext);
+  const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
   const localToken = useGetLocalToken();
   const localUser = useGetLocalUser();
   const initUser = useInitUser();
-  useEffect(() => {
+
+  const authenticateUser = useCallback(() => {
     if (!user && !localToken) {
       navigate('/login');
     } else if (!user && localToken) {
@@ -23,6 +25,24 @@ const useAuthenticateUser = (): void => {
       });
     }
   }, [user, localToken, localUser, initUser, navigate]);
+
+  const handleStorageChange = useCallback(
+    (e: StorageEvent) => {
+      if (e.key === LocalStorageKeys.TOKEN && !e.newValue) {
+        clearUser();
+      }
+    },
+    [clearUser],
+  );
+
+  useEffect(() => {
+    authenticateUser();
+  }, [user, localToken, localUser, initUser, navigate, authenticateUser]);
+
+  useEffect(() => {
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  });
 };
 
 export default useAuthenticateUser;

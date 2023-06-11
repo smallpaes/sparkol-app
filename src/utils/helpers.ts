@@ -1,5 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
+import localStorageKeys from '../constants/localStorageKeys';
+
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:3333',
 });
@@ -19,9 +21,8 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error: AxiosError) => {
     if (error?.response?.status === 401) {
-      // clear local storage
-      localStorage.removeItem('token');
-      // clear context
+      localStorage.removeItem(localStorageKeys.TOKEN);
+      localStorage.removeItem(localStorageKeys.USER);
     }
     return Promise.reject(error);
   },
