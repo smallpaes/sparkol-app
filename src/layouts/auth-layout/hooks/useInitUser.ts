@@ -6,7 +6,6 @@ import { User } from '../../../types/user';
 const useInitUser = () => {
   const { setUser } = useContext(UserContext);
   return (user: User): void => {
-    if (!user) return;
     setUser(user);
   };
 };
