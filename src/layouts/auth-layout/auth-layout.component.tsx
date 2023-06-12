@@ -1,15 +1,21 @@
-import { FC } from 'react';
-import { Outlet } from 'react-router-dom';
+import { FC, useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 import { AuthLayoutContainer } from './auth-layout.styles';
-import useAuthenticateUser from './hooks/useAuthenticateUser';
+import useUserAuthenticated from './hooks/useUserAuthenticated';
 
 const AuthLayout: FC = () => {
-  useAuthenticateUser();
+  const navigate = useNavigate();
+  const { isAuthenticated, isInitialized } = useUserAuthenticated();
+
+  useEffect(() => {
+    if (isInitialized && !isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, isInitialized, navigate]);
+
   return (
-    <AuthLayoutContainer>
-      <Outlet />
-    </AuthLayoutContainer>
+    <AuthLayoutContainer>{isInitialized && <Outlet />}</AuthLayoutContainer>
   );
 };
 
