@@ -76,4 +76,27 @@ describe('HomePage', () => {
     expect(title.textContent).toContain('User');
     homePage.unmount();
   });
+
+  test('should render the log out button', async () => {
+    const mockUser: IDefaultUser = {
+      user: {
+        name: 'Test User',
+        id: 1,
+        token: 'test-token',
+      },
+      clearUser: () => undefined,
+      setUser: () => undefined,
+    };
+    const homePage = render(
+      <ThemeProvider theme={theme}>
+        <UserContext.Provider value={mockUser}>
+          <HomePage />
+        </UserContext.Provider>
+      </ThemeProvider>,
+    );
+
+    const button = await homePage.findByTestId('button');
+    expect(button.textContent).toContain('Log Out');
+    homePage.unmount();
+  });
 });
