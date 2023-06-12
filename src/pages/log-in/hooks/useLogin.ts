@@ -8,25 +8,26 @@ import { LogInResponse, LogInData } from '../log-in.types';
 import setTokenToLocalStorage from '../helpers/setTokenToLocalStorage';
 import setUserToLocalStorage from '../helpers/setUserToLocalStorage';
 import { UserContext } from '../../../context/UserContext';
+import { LogInContext } from '../log-in.context';
 
 import setDataToLocalStorage from '../helpers/setDataToLocalStorage';
 
-const useLogin = (
-  userName: string,
-  password: string,
-): {
+const useLogin = (): {
   login: () => Promise<void>;
   error: string | null;
   isLoading: boolean;
 } => {
+  const {
+    formData: { username, password },
+  } = useContext(LogInContext);
   const { postData, error, isLoading } = usePostData();
   const { setUser } = useContext(UserContext);
-  const isValidForm = useIsValidForm(userName, password);
+  const isValidForm = useIsValidForm();
   const navigate = useNavigate();
   const login = async (): Promise<void> => {
     if (!isValidForm) return;
     const data = await postData<LogInData, LogInResponse>(LOGIN_ENDPOINT, {
-      username: userName,
+      username,
       password,
     });
     if (!data) return;

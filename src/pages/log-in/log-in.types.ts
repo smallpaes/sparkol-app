@@ -1,4 +1,4 @@
-import setDataToLocalStorage from './helpers/setDataToLocalStorage';
+import { ReactNode, SetStateAction, Dispatch } from 'react';
 export interface User {
   name: string;
   id: number;
@@ -14,14 +14,18 @@ export interface LogInData {
   password: string;
 }
 
-export interface IField {
-  value: string;
-  isTouched: boolean;
-}
-
-export interface IFormData {
-  userName: IField;
-  password: IField;
-}
-
 export type SetDataToLocalStorage = <T>(key: string, data: T) => void;
+
+export interface IFormData extends LogInData {
+  isUsernameTouched: boolean;
+  isPasswordTouched: boolean;
+}
+
+export interface ILogInContextProps {
+  formData: IFormData;
+  setFormData: Dispatch<SetStateAction<IFormData>>;
+}
+
+export interface IUserProvider {
+  children: ReactNode;
+}
