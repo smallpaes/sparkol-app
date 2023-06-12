@@ -26,23 +26,9 @@ const useAuthenticateUser = (): void => {
     }
   }, [user, localToken, localUser, initUser, navigate]);
 
-  const handleStorageChange = useCallback(
-    (e: StorageEvent) => {
-      if (e.key === LocalStorageKeys.TOKEN && !e.newValue) {
-        clearUser();
-      }
-    },
-    [clearUser],
-  );
-
   useEffect(() => {
     authenticateUser();
   }, [user, localToken, localUser, initUser, navigate, authenticateUser]);
-
-  useEffect(() => {
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
-  });
 };
 
 export default useAuthenticateUser;
