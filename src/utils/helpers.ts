@@ -25,7 +25,10 @@ axiosInstance.interceptors.response.use(
     if (error?.response?.status === 401) {
       localStorage.removeItem(localStorageKeys.TOKEN);
       localStorage.removeItem(localStorageKeys.USER);
-      window.history.pushState({}, '', '/login');
+      const currentUrl = window.location.pathname;
+      if (currentUrl !== '/login') {
+        window.location.replace('/login');
+      }
     }
     return Promise.reject(error);
   },
