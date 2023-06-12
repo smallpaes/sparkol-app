@@ -1,8 +1,8 @@
 import { useContext, useEffect, useCallback, useState } from 'react';
 
 import { UserContext } from '../../../context/UserContext';
-import useGetLocalToken from './useGetLocalToken';
-import useGetLocalUser from './useGetLocalUser';
+import getLocalUser from '../../../utils/getLocalUser';
+import getLocalToken from '../../../utils/getLocalToken';
 import useInitUser from './useInitUser';
 
 const useUserAuthenticated = (): {
@@ -10,8 +10,8 @@ const useUserAuthenticated = (): {
   isInitialized: boolean;
 } => {
   const { user } = useContext(UserContext);
-  const localToken = useGetLocalToken();
-  const localUser = useGetLocalUser();
+  const localToken = getLocalToken();
+  const localUser = getLocalUser();
   const initUser = useInitUser();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
