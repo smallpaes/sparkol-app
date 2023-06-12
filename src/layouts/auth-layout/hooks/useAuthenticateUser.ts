@@ -5,10 +5,9 @@ import { UserContext } from '../../../context/UserContext';
 import useGetLocalToken from './useGetLocalToken';
 import useGetLocalUser from './useGetLocalUser';
 import useInitUser from './useInitUser';
-import LocalStorageKeys from '../../../constants/localStorageKeys';
 
 const useAuthenticateUser = (): void => {
-  const { user, clearUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const localToken = useGetLocalToken();
   const localUser = useGetLocalUser();
