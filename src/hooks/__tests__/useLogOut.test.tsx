@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react';
 
 import useLogOut from '../useLogOut';
 import { UserContext } from '../../context/UserContext';
-import { IDefaultUser, User } from '../../types/user';
+import { IDefaultUser } from '../../types/user';
 
 describe('useLogOut', () => {
   test('should return a logOut function', () => {
