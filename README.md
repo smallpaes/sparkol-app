@@ -134,7 +134,7 @@ $ touch .env
 **4. Added env variables**
 
 ```
-VITE_BASE_URL=
+VITE_API_BASE_URL=
 ```
 
 **5. Run the app for development**
