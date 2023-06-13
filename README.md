@@ -18,6 +18,8 @@
   - [Clone the project](#clone-the-project)
   - [Setup the App](#setup-the-app)
   - [Other scripts](#other-scripts)
+- [Testing](#testing)
+    - [Unit testing Strategy](#unit-testing-strategy)
 
 ## App first look
 
@@ -175,3 +177,15 @@ $ npm run test:coverage
 ```
 $ open ./coverage/index.html
 ```
+
+## Testing
+
+#### Unit testing Strategy
+
+1. Focused on small functionalities that could be used in one or more components first: Tested custom hooks and helper functions.
+2. Tested the components: UI and user interactions.
+3. Generated a coverage report to check the test coverage:
+
+<div style="width:100%">
+  <img src="https://ik.imagekit.io/mikank/GitHub/test-coverage?updatedAt=1686664903316" alt="Test coverage report" style="width:100%">
+</div>
