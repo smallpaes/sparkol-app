@@ -27,10 +27,14 @@ const LogInContent = () => {
   };
   return (
     <LogInContainer>
-      <LogInForm onSubmit={handleFormSubmit}>
+      <LogInForm data-testid="form" onSubmit={handleFormSubmit}>
         <LoginFormFieldSet disabled={isLoading}>
           <LogInFormLegend>Log In</LogInFormLegend>
-          {error && <LogInFormWarningMessage>{error}</LogInFormWarningMessage>}
+          {error && (
+            <LogInFormWarningMessage data-testid="warning-message">
+              {error}
+            </LogInFormWarningMessage>
+          )}
           <LogInInputGroup>
             <FormInput
               isTouched={formData.isUsernameTouched}
@@ -47,6 +51,7 @@ const LogInContent = () => {
               onBlur={() =>
                 setFormData({ ...formData, isUsernameTouched: true })
               }
+              data-testid="username-input"
             />
             <FormInput
               isTouched={formData.isPasswordTouched}
@@ -64,6 +69,7 @@ const LogInContent = () => {
                 setFormData({ ...formData, isPasswordTouched: true })
               }
               autoComplete="password"
+              data-testid="password-input"
             />
           </LogInInputGroup>
           <Button
@@ -71,6 +77,7 @@ const LogInContent = () => {
             isOutlined={false}
             disabled={isLoading}
             type="submit"
+            data-testid="submit-button"
           >
             Log in
           </Button>
