@@ -1,3 +1,16 @@
+<h3 align="center">
+Sparkol App</h3>
+
+<p align="center">
+  An user-facing web application and is currently supporting basic authentication features
+  <br>
+
+  <br>
+  <a href="https://github.com/smallpaes/sparkol-app/actions/workflows/main.yml" rel="End-to-end testing status page"><img src="https://github.com/smallpaes/sparkol-app/actions/workflows/main.yml/badge.svg?branch=main" alt="End-to-end testing status on main branch"></a>
+  <a href="https://github.com/smallpaes/sparkol-app/actions/workflows/unit-testing.yml" rel="Unit testing and building status page"><img src="https://github.com/smallpaes/sparkol-app/actions/workflows/unit-testing.yml/badge.svg?branch=main" alt="Unit testing and building status on main branch"></a>
+  <a href="https://cloud.cypress.io/projects/d8jmn7/runs" rel="End-to-end testing status page on Cypress cloud"><img src="https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/d8jmn7&style=flat&logo=cypress" alt="End-to-end testing status on main branch for Cypress cloud"></a>
+</p>
+
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
