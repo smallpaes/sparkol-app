@@ -34,14 +34,22 @@ describe('LogInContent', () => {
       </BrowserRouter>,
     );
 
-    expect(logInContent.findByTestId('form')).toBeTruthy();
-    const usernameInput = await logInContent.findByTestId('username-input');
+    expect(logInContent.findByTestId('log-in-content-form')).toBeTruthy();
+    const usernameInput = await logInContent.findByTestId(
+      'log-in-username-input',
+    );
     expect(usernameInput.getAttribute('name')).contain('User Name');
-    const passwordInput = await logInContent.findByTestId('password-input');
+    const passwordInput = await logInContent.findByTestId(
+      'log-in-content-password-input',
+    );
     expect(passwordInput.getAttribute('name')).contain('Password');
-    const submitButton = await logInContent.findByTestId('submit-button');
+    const submitButton = await logInContent.findByTestId(
+      'log-in-content-submit-button',
+    );
     expect(submitButton.textContent).contain('Log in');
-    const warningMessage = screen.queryByTestId('warning-message');
+    const warningMessage = screen.queryByTestId(
+      'log-in-content-warning-message',
+    );
     expect(warningMessage).toBeNull();
     logInContent.unmount();
   });
@@ -69,7 +77,9 @@ describe('LogInContent', () => {
       </BrowserRouter>,
     );
 
-    const usernameInput = await logInContent.findByTestId('warning-message');
+    const usernameInput = await logInContent.findByTestId(
+      'log-in-content-warning-message',
+    );
     expect(usernameInput.textContent).contain(mockWarningMessage);
     logInContent.unmount();
   });
@@ -91,7 +101,9 @@ describe('LogInContent', () => {
       </BrowserRouter>,
     );
 
-    const passwordInput = await logInContent.findByTestId('password-input');
+    const passwordInput = await logInContent.findByTestId(
+      'log-in-content-password-input',
+    );
     const mockChangeEvent = { target: { value: 't' } };
     fireEvent.change(passwordInput, mockChangeEvent);
     expect(setFormData).toBeCalled();
@@ -120,7 +132,9 @@ describe('LogInContent', () => {
       </BrowserRouter>,
     );
 
-    const usernameInput = await logInContent.findByTestId('username-input');
+    const usernameInput = await logInContent.findByTestId(
+      'log-in-username-input',
+    );
     const mockChangeEvent = { target: { value: 't' } };
     fireEvent.change(usernameInput, mockChangeEvent);
     expect(setFormData).toBeCalled();
@@ -155,7 +169,9 @@ describe('LogInContent', () => {
       </BrowserRouter>,
     );
 
-    const button = await logInContent.findByTestId('submit-button');
+    const button = await logInContent.findByTestId(
+      'log-in-content-submit-button',
+    );
     button.click();
     expect(mockLogin).toBeCalled();
     logInContent.unmount();
@@ -178,7 +194,9 @@ describe('LogInContent', () => {
       </BrowserRouter>,
     );
 
-    const usernameInput = await logInContent.findByTestId('username-input');
+    const usernameInput = await logInContent.findByTestId(
+      'log-in-username-input',
+    );
     fireEvent.blur(usernameInput);
     expect(setFormData).toBeCalled();
     expect(setFormData).toBeCalledWith({
@@ -205,7 +223,9 @@ describe('LogInContent', () => {
       </BrowserRouter>,
     );
 
-    const passwordInput = await logInContent.findByTestId('password-input');
+    const passwordInput = await logInContent.findByTestId(
+      'log-in-content-password-input',
+    );
     fireEvent.blur(passwordInput);
     expect(setFormData).toBeCalled();
     expect(setFormData).toBeCalledWith({

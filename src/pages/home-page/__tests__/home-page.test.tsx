@@ -27,9 +27,9 @@ describe('HomePage', () => {
       </ThemeProvider>,
     );
 
-    const title = await homePage.findByTestId('title');
-    const subtitle = await homePage.findByTestId('subtitle');
-    const button = await homePage.findByTestId('button');
+    const title = await homePage.findByTestId('home-page-title');
+    const subtitle = await homePage.findByTestId('home-page-subtitle');
+    const button = await homePage.findByTestId('home-page-button');
     expect(title.textContent).toContain('Welcome');
     expect(subtitle.textContent).toContain('You are logged in');
     expect(button.textContent).toContain('Log Out');
@@ -54,7 +54,7 @@ describe('HomePage', () => {
       </ThemeProvider>,
     );
 
-    const title = await homePage.findByTestId('title');
+    const title = await homePage.findByTestId('home-page-title');
     expect(title.textContent).toContain('Test User');
     homePage.unmount();
   });
@@ -73,7 +73,7 @@ describe('HomePage', () => {
       </ThemeProvider>,
     );
 
-    const title = await homePage.findByTestId('title');
+    const title = await homePage.findByTestId('home-page-title');
     expect(title.textContent).toContain('User');
     homePage.unmount();
   });
@@ -96,7 +96,7 @@ describe('HomePage', () => {
       </ThemeProvider>,
     );
 
-    const button = await homePage.findByTestId('button');
+    const button = await homePage.findByTestId('home-page-button');
     expect(button.textContent).toContain('Log Out');
     homePage.unmount();
   });
@@ -123,7 +123,7 @@ describe('HomePage', () => {
       </ThemeProvider>,
     );
 
-    const button = await homePage.findByTestId('button');
+    const button = await homePage.findByTestId('home-page-button');
     button.click();
     expect(spyUseLogOut).toHaveBeenCalled();
     expect(mockLogOut).toHaveBeenCalled();

@@ -18,7 +18,7 @@ describe('FormInput', () => {
       </ThemeProvider>,
     );
 
-    const inputMessage = await formInput.findByTestId('message');
+    const inputMessage = await formInput.findByTestId('form-input-message');
     expect(inputMessage.textContent).contain(mockInvalidMessage);
     formInput.unmount();
   });
@@ -34,7 +34,7 @@ describe('FormInput', () => {
         />
       </ThemeProvider>,
     );
-    expect(screen.queryByTestId('message')).toBeNull();
+    expect(screen.queryByTestId('form-input-message')).toBeNull();
     formInput.unmount();
   });
 
@@ -73,7 +73,7 @@ describe('FormInput', () => {
         />
       </ThemeProvider>,
     );
-    const label = await formInput.findByTestId('label');
+    const label = await formInput.findByTestId('form-input-label');
     expect(label.textContent).contain(mockInputName);
   });
 });

@@ -17,15 +17,15 @@ const HomePage: FC = () => {
   return (
     <HomePageContainer>
       <HomePageContent>
-        <HomePageTitle data-testid="title">
+        <HomePageTitle data-testid="home-page-title">
           Welcome, {user?.name || 'User'}
         </HomePageTitle>
-        <HomePageSubtitle data-testid="subtitle">
+        <HomePageSubtitle data-testid="home-page-subtitle">
           You are logged in
         </HomePageSubtitle>
       </HomePageContent>
       <HomePageButton
-        data-testid="button"
+        data-testid="home-page-button"
         buttonType={ButtonType.PRIMARY}
         type="button"
         onClick={logOut}
