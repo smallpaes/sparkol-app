@@ -1,0 +1,19 @@
+name: Run Cypress E2E Testing
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install modules
+        run: npm ci
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          headless: true
+          start: npm run dev
+          wait-on: http://localhost:5173
