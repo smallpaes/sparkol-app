@@ -2,24 +2,25 @@
 
 - [Table of contents](#table-of-contents)
 - [App first look](#app-first-look)
-    - [Login Page](#login-page)
-      - [Initial state](#initial-state)
-      - [Display hint message](#display-hint-message)
-      - [Display error message](#display-error-message)
-    - [Home Page After Login](#home-page-after-login)
+  - [Login Page](#login-page)
+    - [Initial state](#initial-state)
+    - [Display hint message](#display-hint-message)
+    - [Display error message](#display-error-message)
+  - [Home Page After Login](#home-page-after-login)
 - [About the project](#about-the-project)
   - [Tools \& API used for the application](#tools--api-used-for-the-application)
 - [What are included in detail](#what-are-included-in-detail)
-    - [Sign In Page](#sign-in-page)
-    - [Home page](#home-page)
-    - [Others](#others)
+  - [Sign In Page](#sign-in-page)
+  - [Home page](#home-page)
+  - [Others](#others)
 - [Run the app locally](#run-the-app-locally)
   - [Prerequisites](#prerequisites)
   - [Clone the project](#clone-the-project)
   - [Setup the App](#setup-the-app)
   - [Other scripts](#other-scripts)
 - [Testing](#testing)
-    - [Unit testing Strategy](#unit-testing-strategy)
+  - [Unit testing Strategy](#unit-testing-strategy)
+  - [E2E testing strategy](#e2e-testing-strategy)
 
 ## App first look
 
@@ -159,14 +160,14 @@ $ npm run lint
 $ npm run format
 ```
 
-**3. Code Testing (Either one)**
+**3. Unit testing (Either one)**
 
 ```
 $ npm run test
 $ npm t
 ```
 
-**4. Test coverage report generation**
+**4. Test coverage report generation for unit testing**
 
 ```
 $ npm run test:coverage
@@ -176,6 +177,26 @@ $ npm run test:coverage
 
 ```
 $ open ./coverage/index.html
+```
+
+**5. E2E testing using Cypress**
+
+> Start the server:
+
+```
+$ npm run dev
+```
+
+> Run the test using Cypress:
+
+```
+$ npm run cy:open
+```
+
+**6. E2E testing headlessly with recording**
+
+```
+$ npm run cy:run
 ```
 
 ## Testing
@@ -188,4 +209,16 @@ $ open ./coverage/index.html
 
 <div style="width:100%">
   <img src="https://ik.imagekit.io/mikank/GitHub/test-coverage?updatedAt=1686664903316" alt="Test coverage report" style="width:100%">
+</div>
+
+#### E2E testing strategy
+
+1. Tested the login flow: Made sure the user can log in to the application successfully and be redirected to the home page.
+2. Tested the login functionalities: Handled different scenario on the login page.
+3. Tested the logout flow: Made sure the user can log out from the application successfully on the home page.
+4. Tested route protection: Made sure the user can't access the home page without logging in and will be redirected to the login page.
+5. Generated the testing report:
+
+<div style="width:100%">
+  <img src="https://ik.imagekit.io/mikank/GitHub/cypress-report?updatedAt=1686686801908" alt="Test coverage report" style="width:100%">
 </div>
