@@ -1,0 +1,10 @@
+{
+  "statusCode": 200,
+  "body": {
+    "user": {
+      "name": "John Doe",
+      "id": 1
+    },
+    "token": "faketoken"
+  }
+}
