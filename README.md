@@ -257,7 +257,7 @@ $ npm run cy:run
 3. Generated a coverage report to check the test coverage:
 
 <div style="width:100%">
-  <img src="https://ik.imagekit.io/mikank/GitHub/test-coverage?updatedAt=1686664903316" alt="Test coverage report" style="width:100%">
+  <img src="https://ik.imagekit.io/mikank/GitHub/test-coverage-2?updatedAt=1686741219142" alt="Test coverage report" style="width:100%">
 </div>
 
 #### E2E testing strategy
