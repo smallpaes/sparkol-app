@@ -14,7 +14,7 @@ const NotFound: FC = () => {
   return (
     <NotFoundContainer>
       <NotFoundContent>
-        <NotFoundIcon />
+        <NotFoundIcon data-testid="not-found-icon" />
         <NotFoundTitle data-testid="not-found-title">
           Oops! Page not found!
         </NotFoundTitle>
