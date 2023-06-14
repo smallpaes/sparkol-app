@@ -19,11 +19,13 @@
     - [Display hint message](#display-hint-message)
     - [Display error message](#display-error-message)
   - [Home Page After Login](#home-page-after-login)
+  - [Not Found Page(404)](#not-found-page404)
 - [Project Overview](#project-overview)
   - [User stories](#user-stories)
   - [Features Detail](#features-detail)
     - [Sign In Page](#sign-in-page)
     - [Home page](#home-page)
+    - [Not found page](#not-found-page)
     - [Others](#others)
   - [Tools \& API used for the application](#tools--api-used-for-the-application)
 - [Run the app locally](#run-the-app-locally)
@@ -77,6 +79,12 @@
   <img src="https://ik.imagekit.io/mikank/GitHub/screencapture-localhost-5173-2023-06-12-22_40_29.png?updatedAt=1686606098642" alt="Home page screenshot" style="width:100%">
 </div>
 
+#### Not Found Page(404)
+
+<div style="width:100%">
+  <img src="https://ik.imagekit.io/mikank/GitHub/not-found-page.png?updatedAt=1686740776962" alt="Not found page screenshot" style="width:100%">
+</div>
+
 ## Project Overview
 
 ### User stories
@@ -107,6 +115,11 @@ Sparkol app is a user-facing web application with the following user stories imp
   - Login status will be persisted after refreshing the page
   - Redirect the user to the login page if the data is missing in the local storage
 
+#### Not found page
+
+- Display a 404 page when the user tries to access a non-existing route
+- Display a button for the user to get back to the home page(or login page if the user is not logged in)
+
 #### Others
 
 - Redirect the user to the login page if subsequent requests to protected API routes are failed due to unauthorized access
@@ -126,6 +139,7 @@ Sparkol app is a user-facing web application with the following user stories imp
 - [Happy Dom](https://github.com/capricorn86/happy-dom): Used as a JavaScript implementation of a web browser for testing.
 - [Cypress](https://www.cypress.io/): For end-to-end testing.
 - [GitHub Actions](https://docs.github.com/en/actions): For continuous integration.
+- [vite-plugin-svgr](https://www.npmjs.com/package/vite-plugin-svgr?activeTab=readme): For transforming SVGs into React components in Vite.
 - [Sparkol Authentication Service](https://github.com/Sparkol/interview-authentication-service/blob/master/src/app.js): For user authentication.
 
 ## Run the app locally
