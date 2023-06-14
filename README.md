@@ -22,11 +22,11 @@ Sparkol App</h3>
   - [Home Page After Login](#home-page-after-login)
 - [Project Overview](#project-overview)
   - [User stories](#user-stories)
+  - [Features Detail](#features-detail)
+    - [Sign In Page](#sign-in-page)
+    - [Home page](#home-page)
+    - [Others](#others)
   - [Tools \& API used for the application](#tools--api-used-for-the-application)
-- [What are included in detail](#what-are-included-in-detail)
-  - [Sign In Page](#sign-in-page)
-  - [Home page](#home-page)
-  - [Others](#others)
 - [Run the app locally](#run-the-app-locally)
   - [Prerequisites](#prerequisites)
   - [Clone the project](#clone-the-project)
@@ -74,22 +74,7 @@ Sparkol app is a user-facing web application with the following user stories imp
 - User can explore the homepage, a protected route, after logged in to see a greeting message.
 - User can sign out from the application on the homepage after logged in.
 
-### Tools & API used for the application
-
-- [React](https://react.dev/): For building user interfaces.
-- [React Router](https://reacttraining.com/react-router/): For routing in React.
-- [TypeScript](https://www.typescriptlang.org/): For static type checking.
-- [Vite](https://vitejs.dev/): Used as a local development server and build tool.
-- [styled-components](https://styled-components.com/): For writing CSS in JS in React.
-- [ESLint](https://eslint.org/): For code linting.
-- [Prettier](https://prettier.io/): For code formatting.
-- [axios](https://axios-http.com/): For making HTTP requests.
-- [Vitest](https://vitest.dev/): For unit testing.
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/): For testing React components.
-- [Happy Dom](https://github.com/capricorn86/happy-dom): Used as a JavaScript implementation of a web browser for testing.
-- [Sparkol Authentication Service](https://github.com/Sparkol/interview-authentication-service/blob/master/src/app.js): For user authentication.
-
-## What are included in detail
+### Features Detail
 
 #### Sign In Page
 
@@ -112,6 +97,21 @@ Sparkol app is a user-facing web application with the following user stories imp
 #### Others
 
 - Redirect the user to the login page if subsequent requests to protected API routes are failed due to unauthorized access
+
+### Tools & API used for the application
+
+- [React](https://react.dev/): For building user interfaces.
+- [React Router](https://reacttraining.com/react-router/): For routing in React.
+- [TypeScript](https://www.typescriptlang.org/): For static type checking.
+- [Vite](https://vitejs.dev/): Used as a local development server and build tool.
+- [styled-components](https://styled-components.com/): For writing CSS in JS in React.
+- [ESLint](https://eslint.org/): For code linting.
+- [Prettier](https://prettier.io/): For code formatting.
+- [axios](https://axios-http.com/): For making HTTP requests.
+- [Vitest](https://vitest.dev/): For unit testing.
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/): For testing React components.
+- [Happy Dom](https://github.com/capricorn86/happy-dom): Used as a JavaScript implementation of a web browser for testing.
+- [Sparkol Authentication Service](https://github.com/Sparkol/interview-authentication-service/blob/master/src/app.js): For user authentication.
 
 ## Run the app locally
 
