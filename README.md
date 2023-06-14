@@ -35,6 +35,11 @@ Sparkol App</h3>
 - [Testing](#testing)
   - [Unit testing Strategy](#unit-testing-strategy)
   - [E2E testing strategy](#e2e-testing-strategy)
+- [Continuous Integration (CI)](#continuous-integration-ci)
+  - [Cypress End-to-End Testing (Local):](#cypress-end-to-end-testing-local)
+  - [Cypress End-to-End Testing (Cloud)](#cypress-end-to-end-testing-cloud)
+  - [Unit Testing and Build](#unit-testing-and-build)
+  - [Other Information](#other-information)
 
 ## App first look
 
@@ -237,4 +242,34 @@ $ npm run cy:run
 
 <div style="width:100%">
   <img src="https://ik.imagekit.io/mikank/GitHub/cypress-report?updatedAt=1686686801908" alt="Test coverage report" style="width:100%">
+</div>
+
+## Continuous Integration (CI)
+
+The project utilizes GitHub Actions as the primary tool for implementing a robust continuous integration (CI) process. The CI pipeline is triggered automatically whenever changes are pushed to the main branch, ensuring the reliability and quality of the application codebase. The CI process includes the following steps:
+
+#### Cypress End-to-End Testing (Local):
+
+- The CI pipeline executes the Cypress end-to-end testing to validate the application's behavior and interactions, ensuring its overall functionality and user experience.
+
+#### Cypress End-to-End Testing (Cloud)
+
+- The CI pipeline executes the Cypress end-to-end testing, which validate the application's functionality and user flows from a user's perspective.
+
+- The test results are recorded and sent to Cypress Cloud, a testing platform that provides in-depth and shareable test reports.
+
+- Cypress Cloud offers valuable features such as quick access to error messages, stack traces, screenshots, videos, and contextual details, facilitating efficient debugging and issue resolution.
+
+#### Unit Testing and Build
+
+- The CI process starts the build process to ensures that the codebase is in a deployable state and ready for further testing.
+
+- After that, the pipeline proceeds to running unit testing that validates the functionality of individual components, functions, and custom hooks within the application.
+
+#### Other Information
+
+- Status badges on the README file to provide a quick overview of the CI pipeline's status:
+
+<div style="width:100%">
+  <img src="https://ik.imagekit.io/mikank/GitHub/CI-status-badges?updatedAt=1686732495326" alt="CI pipeline status badges" style="width:100%">
 </div>
