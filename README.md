@@ -1,5 +1,4 @@
-<h3 align="center">
-Sparkol App</h3>
+<h3 align="center">Sparkol App</h3>
 
 <p align="center">
   An user-facing web application and is currently supporting basic authentication features
@@ -43,6 +42,11 @@ Sparkol App</h3>
 - [Future Enhancements](#future-enhancements)
   - [Data fetching](#data-fetching)
   - [CSS code reusability](#css-code-reusability)
+- [Challenges and Solutions](#challenges-and-solutions)
+  - [Refactor the code for unit testing:](#refactor-the-code-for-unit-testing)
+  - [End-to-End Testing with Cypress](#end-to-end-testing-with-cypress)
+  - [Continuous Integration with GitHub Actions](#continuous-integration-with-github-actions)
+  - [Making development process more efficient](#making-development-process-more-efficient)
 
 ## App first look
 
@@ -291,3 +295,30 @@ Might consider using TanStack Query for data fetching as it provides some benefi
 #### CSS code reusability
 
 Creates more mixins using styled-components, allowing the CSS code to be reused across the application.
+
+## Challenges and Solutions
+
+During the development of this project, there are some challenges that allowed me to learn and implement new technologies and practices. Here are some of them and how I addressed them:
+
+#### Refactor the code for unit testing:
+
+One of the challenges I encountered was ensuring the reliability and stability of the codebase. To overcome this, I adopted a unit testing approach using Vitest and React Testing Library. This process allows me think about how I should structure and refactor my components, functions, custom hooks for easier testing.
+
+#### End-to-End Testing with Cypress
+
+To ensure end-to-end functionality and simulate real-world user interactions, I integrated Cypress into the project for comprehensive end-to-end testing. Cypress allowed me to write tests that cover multiple components, interactions, and API integrations. The process allowed me to think about the use case from the users' perspective and ensure the application's overall functionality and user experience.
+
+As the backend server should be run locally at this moment before the frontend application could call the API, I tried to mock the API response in Cypress to make sure the frontend functionalities could work properly without having to integrate with the real API.
+
+#### Continuous Integration with GitHub Actions
+
+As part of the development process, I wanted to automate CI process to ensure consistent quality and reliability, therefore, I integrated GitHub Actions into the project, which provided a robust and flexible CI solution.
+
+#### Making development process more efficient
+
+To make the development process more efficient among the team, I created or used:
+
+- Common theme and basic mixins using styled-components.
+- ESLint and Prettier for code linting and formatting.
+- Github pull request template to make sure the PRs are following the same format and contain the necessary information.
+- CI pipeline to ensure the codebase is in a deployable state and passed the necessary testing.
