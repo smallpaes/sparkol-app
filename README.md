@@ -123,6 +123,8 @@ Sparkol app is a user-facing web application with the following user stories imp
 - [Vitest](https://vitest.dev/): For unit testing.
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/): For testing React components.
 - [Happy Dom](https://github.com/capricorn86/happy-dom): Used as a JavaScript implementation of a web browser for testing.
+- [Cypress](https://www.cypress.io/): For end-to-end testing.
+- [GitHub Actions](https://docs.github.com/en/actions): For continuous integration.
 - [Sparkol Authentication Service](https://github.com/Sparkol/interview-authentication-service/blob/master/src/app.js): For user authentication.
 
 ## Run the app locally
@@ -164,11 +166,15 @@ $ touch .env
 
 **4. Added env variables**
 
+> The value should be the back-end api endpoint.
+
 ```
 VITE_API_BASE_URL=
 ```
 
 **5. Run the app for development**
+
+> Please make sure the backend server is running.
 
 ```
 $ npm run dev
