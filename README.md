@@ -42,6 +42,8 @@
 - [Future Enhancements](#future-enhancements)
   - [Data fetching](#data-fetching)
   - [CSS code reusability](#css-code-reusability)
+  - [Increase test coverage](#increase-test-coverage)
+  - [Increase test coverage](#increase-test-coverage-1)
 - [Challenges and Solutions](#challenges-and-solutions)
   - [Refactor the code for unit testing:](#refactor-the-code-for-unit-testing)
   - [End-to-End Testing with Cypress](#end-to-end-testing-with-cypress)
@@ -301,6 +303,14 @@ Might consider using TanStack Query for data fetching as it provides some benefi
 #### CSS code reusability
 
 Creates more mixins using styled-components, allowing the CSS code to be reused across the application.
+
+#### Increase test coverage
+
+Even though the test coverage is already high, there are still some areas that could be improved, such as unit testing for context.
+
+#### Increase test coverage
+
+Even though the test coverage is already high, there are still some areas that could be improved, such as context.
 
 ## Challenges and Solutions
 
