@@ -20,7 +20,8 @@ Sparkol App</h3>
     - [Display hint message](#display-hint-message)
     - [Display error message](#display-error-message)
   - [Home Page After Login](#home-page-after-login)
-- [About the project](#about-the-project)
+- [Project Overview](#project-overview)
+  - [User stories](#user-stories)
   - [Tools \& API used for the application](#tools--api-used-for-the-application)
 - [What are included in detail](#what-are-included-in-detail)
   - [Sign In Page](#sign-in-page)
@@ -63,9 +64,11 @@ Sparkol App</h3>
   <img src="https://ik.imagekit.io/mikank/GitHub/screencapture-localhost-5173-2023-06-12-22_40_29.png?updatedAt=1686606098642" alt="Home page screenshot" style="width:100%">
 </div>
 
-## About the project
+## Project Overview
 
-Sparkol app is a user-facing web application, current support the following features:
+### User stories
+
+Sparkol app is a user-facing web application with the following user stories implemented:
 
 - User can logs in to the application on the login page.
 - User can explore the homepage, a protected route, after logged in to see a greeting message.
