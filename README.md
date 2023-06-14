@@ -123,6 +123,8 @@ Sparkol app is a user-facing web application with the following user stories imp
 - [Vitest](https://vitest.dev/): For unit testing.
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/): For testing React components.
 - [Happy Dom](https://github.com/capricorn86/happy-dom): Used as a JavaScript implementation of a web browser for testing.
+- [Cypress](https://www.cypress.io/): For end-to-end testing.
+- [GitHub Actions](https://docs.github.com/en/actions): For continuous integration.
 - [Sparkol Authentication Service](https://github.com/Sparkol/interview-authentication-service/blob/master/src/app.js): For user authentication.
 
 ## Run the app locally
