@@ -166,11 +166,15 @@ $ touch .env
 
 **4. Added env variables**
 
+> The value should be the back-end api endpoint.
+
 ```
 VITE_API_BASE_URL=
 ```
 
 **5. Run the app for development**
+
+> Please make sure the backend server is running.
 
 ```
 $ npm run dev
