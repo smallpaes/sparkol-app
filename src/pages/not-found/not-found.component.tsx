@@ -6,6 +6,7 @@ import {
   NotFoundButton,
   NotFoundContent,
   NotFoundTitle,
+  NotFoundIcon,
 } from './not-found.styles';
 import { ButtonType } from '../../components/button/button.types';
 
@@ -13,6 +14,7 @@ const NotFound: FC = () => {
   return (
     <NotFoundContainer>
       <NotFoundContent>
+        <NotFoundIcon />
         <NotFoundTitle data-testid="not-found-title">
           Oops! Page not found!
         </NotFoundTitle>
