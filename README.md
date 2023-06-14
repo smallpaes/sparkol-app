@@ -40,6 +40,9 @@ Sparkol App</h3>
   - [Cypress End-to-End Testing (Cloud)](#cypress-end-to-end-testing-cloud)
   - [Unit Testing and Build](#unit-testing-and-build)
   - [Other Information](#other-information)
+- [Future Enhancements](#future-enhancements)
+  - [Data fetching](#data-fetching)
+  - [CSS code reusability](#css-code-reusability)
 
 ## App first look
 
@@ -273,3 +276,18 @@ The project utilizes GitHub Actions as the primary tool for implementing a robus
 <div style="width:100%">
   <img src="https://ik.imagekit.io/mikank/GitHub/CI-status-badges?updatedAt=1686732495326" alt="CI pipeline status badges" style="width:100%">
 </div>
+
+## Future Enhancements
+
+Some potential improvements that could be made to the application to provide a better user experience and code maintainability across the team:
+
+#### Data fetching
+
+Might consider using TanStack Query for data fetching as it provides some benefits:
+
+- Fetching state will be handled by the library.
+- Automatic caching, refetching, and updating of data--Could be useful if there are other APIs that need to be integrated into the application in the future.
+
+#### CSS code reusability
+
+Creates more mixins using styled-components, allowing the CSS code to be reused across the application.
